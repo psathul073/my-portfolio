@@ -36,7 +36,7 @@ const Projects = memo( function Projects() {
       const project2 = repoResults[12];
       const project3 = repoResults[8];
       const project4 = repoResults[9];
-      const project5 = repoResults[15];
+      const project5 = repoResults[16];
       const project6 = repoResults[1];
 
       setGhRepo((prev) => ([...prev, project1, project2, project3, project4, project5, project6]));
