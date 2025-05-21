@@ -1,9 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { Html, PositionalAudio, useProgress } from "@react-three/drei";
 import Drone from "./Drone-viewer";
-import { Suspense, useRef } from "react";
+import { Suspense, useRef, memo } from "react";
 
-const RoboDrone = () => {
+const RoboDrone = memo( function RoboDrone() {
 
   const audioRef = useRef();
 
@@ -52,6 +52,6 @@ const RoboDrone = () => {
 
     </div>
   );
-};
+});
 
 export default RoboDrone;

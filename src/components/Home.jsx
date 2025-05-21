@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FetchRepoData, FetchUserData } from '../API/githubData';
 import { Link, useNavigate } from 'react-router';
 import { motion as Motion } from 'motion/react';
@@ -8,12 +8,13 @@ import Terminal from './Terminal';
 import RoboDrone from './Robo-drone';
 import Icons from './Icons';
 import Settings from './Settings';
-import HProjectSkelton from './Project-skelton';
+import ProjectSkelton from './Project-skelton';
 import Technologies from './Technologies';
 import Contact from './Contact';
 import Footer from './Footer';
+import { memo } from 'react';
 
-const Home = () => {
+const Home = memo ( function Home(){
 
   const [isModelOpen, setIsModalOpen] = useState(false);
   const [githubStatus, setGithubStatus] = useState({});
@@ -23,10 +24,10 @@ const Home = () => {
   const aboutRef = useRef(null);
   const navigate = useNavigate();
 
-  const handleAboutClick = () => {
+  const handleAboutClick = useCallback(() => {
     navigate('#about', { replace: false });
     aboutRef.current?.scrollIntoView({ behavior: "smooth" });
-  }
+  },[navigate]);
 
   // Preload Image
   useEffect(() => {
@@ -109,7 +110,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }} // triggers when 20% is visible
-            transition={{ type: 'tween', duration: 0.6, ease: 'easeOut' }} className='about-content'>
+            transition={{ duration: 0.3, ease: 'easeIn' }} className='about-content'>
             <h1>About Me<span>.</span></h1>
             <p>
               Hey! I'm Athul, a self-taught Full Stack Developer from Kerala, India. I love building web apps with React, Node.js, and PostgreSQL, and I'm always experimenting with new tools and ideas. <br />
@@ -124,7 +125,7 @@ const Home = () => {
 
           </Motion.div>
 
-          <Motion.div initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ type: 'spring', damping: 15, bounce: 0.30}} className='img-container'>
+          <Motion.div initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'circInOut' }} className='img-container'>
             <img rel='preload' src="/image/my.png" alt="profile img" loading='lazy' />
 
             <div className='img-text'>
@@ -146,19 +147,19 @@ const Home = () => {
 
         <section id='recent-project'>
 
-          <Motion.div initial={{opacity: 0, y: 100}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ type: 'spring', damping: 15, bounce: 0.30}} className='project-container'>
+          <Motion.div initial={{opacity: 0, y: 100}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'easeInOut' }} className='project-container'>
 
             <h2>Recent Projects<span>.</span></h2>
             <p>Explore some of my latest projects below, and for more, visit my GitHub profile.</p>
             {
               skelton ? <>
-                <HProjectSkelton />
-                <HProjectSkelton />
+                <ProjectSkelton />
+                <ProjectSkelton />
               </>
                 :
                 githubRepo?.map((project, index) => (
 
-                  <Motion.div  initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ type: 'spring', damping: 15, bounce: 0.30}} className='project' key={index}>
+                  <Motion.div  initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease:'circInOut' }} className='project' key={index}>
                     <h3>{project.name}</h3>
                     <p className='date'>{project.created_at.split('T')[0]}</p>
                     <p className='description'>{project.description}</p>
@@ -186,7 +187,7 @@ const Home = () => {
 
             }
 
-            <Motion.div  initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ type: 'spring', damping: 15, bounce: 0.30}} className='more-project'>
+            <Motion.div  initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'easeIn'}} className='more-project'>
               <p>Would you like to view more of my work?</p>
               <div className='links'>
                 <Link to={"/projects"}>View more projects <Icons name={'arrowRight'} className={'icon'} /> </Link>
@@ -206,7 +207,7 @@ const Home = () => {
       </main>
     </>
   )
-}
+});
 
 
 export default Home

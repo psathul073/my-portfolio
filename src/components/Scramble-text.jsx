@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 
 const characters =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
 
-const ScrambledTypingArray = ({ texts }) => {
+const ScrambledTypingArray = memo ( function ScrambledTypingArray({ texts }) {
   const [displayText, setDisplayText] = useState("");
   const [phase, setPhase] = useState("typing"); // typing | hold | deleting
   const [charIndex, setCharIndex] = useState(0);
@@ -84,6 +84,6 @@ const ScrambledTypingArray = ({ texts }) => {
       {showCursor ? "|" : ""}
     </p>
   );
-};
+});
 
 export default ScrambledTypingArray;

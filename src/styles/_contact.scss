@@ -28,8 +28,7 @@
     // background-color: aqua;
     --webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
-    z-index: 1;
-    transition: all 0.5s ease-in-out;
+    z-index: 1;;
 
     .contact-content {
         color: var(--text-color);

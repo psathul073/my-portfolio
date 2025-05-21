@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import Icons from './Icons';
 import ScrambledTypingArray from './Scramble-text';
 import { motion as Motion } from "motion/react";
 import { Link } from 'react-router';
 
-const Terminal = () => {
+const Terminal = memo( function Terminal() {
   return (
 
     <div className="terminal-container">
@@ -11,11 +12,11 @@ const Terminal = () => {
       <Motion.div initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
-          type: 'spring',
-          duration: 0.9,
-          ease: 'easeOut'
+          duration: 0.3,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01],
         }} id="terminal">
-          
+
         <div className="main-head">
           <div className="h-1">
             <div className="red"></div>
@@ -101,9 +102,7 @@ const Terminal = () => {
       </Motion.div>
 
       <Motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{
-        type: 'spring',
-        duration: 0.9,
-        ease: 'easeOut'
+        duration: 0.3, ease: "backIn"
       }} className='terminal-btns'>
         <Link>Resume <Icons name={"download"} className={'icon'} /> </Link>
         <Link to={'/contact'}>Contact me <Icons name={"arrow"} className={'icon'} /></Link>
@@ -112,6 +111,6 @@ const Terminal = () => {
     </div>
 
   );
-}
+});
 
 export default Terminal

@@ -1,13 +1,11 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, memo, useCallback } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
-const Drone = ({ audioRef }) => {
+const Drone = memo ( function Drone({ audioRef }){
 
   const [isAnimate, setIsAnimate] = useState(false);
-
-
   const { scene } = useGLTF("model/flying_robot/scene.gltf");
   const droneRef = useRef();
   const { camera } = useThree();
@@ -16,7 +14,7 @@ const Drone = ({ audioRef }) => {
   const raycaster = useRef(new THREE.Raycaster());
   const target = useRef(new THREE.Vector3());
 
-  const handleHover = () => {
+  const handleHover = useCallback(() => {
     if (!audioRef.current) return;
 
     if (audioRef.current.isPlaying) {
@@ -25,14 +23,14 @@ const Drone = ({ audioRef }) => {
     }
     audioRef.current.play();
     setIsAnimate(true);
-  }
+  },[audioRef]);
 
-  const handleHoverOut = () => {
+  const handleHoverOut = useCallback(() => {
     if (audioRef.current?.isPlaying) {
       audioRef.current.stop(); // Reset
       setIsAnimate(false);
     }
-  }
+  },[audioRef]);
 
   useEffect(() => {
     if (audioRef.current.isPlaying) {
@@ -78,6 +76,6 @@ const Drone = ({ audioRef }) => {
   });
 
   return <primitive ref={droneRef} object={scene} scale={[0.7, 0.7, -0.7]} onPointerOver={handleHover} onPointerOut={handleHoverOut} />;
-};
+});
 
 export default Drone

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import Tooltip from './Tooltip';
 import Icons from './Icons';
 import { motion as Motion } from "motion/react";
 
-const Header = ({ setIsModalOpen, aboutRef, aboutClick }) => {
+const Header = memo( function Header({ setIsModalOpen, aboutRef, aboutClick }) {
 
   const [active, setActive] = useState(() => localStorage.getItem('activeNav') || 'home');
 
@@ -18,7 +18,7 @@ const Header = ({ setIsModalOpen, aboutRef, aboutClick }) => {
       }
       activeNav();
   
-    }, [active])
+    }, [active, aboutRef])
 
   return (
     <Motion.header initial={{ opacity: 0, y: -50 }}
@@ -40,6 +40,6 @@ const Header = ({ setIsModalOpen, aboutRef, aboutClick }) => {
       </nav>
     </Motion.header>
   )
-}
+})
 
 export default Header

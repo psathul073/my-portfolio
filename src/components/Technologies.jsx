@@ -1,10 +1,10 @@
 
-import React from 'react'
+import React, { memo } from 'react'
 import Icons from './Icons'
 import { Link } from 'react-router';
 import { motion as Motion } from 'motion/react';
 
-const Technologies = () => {
+const Technologies = memo ( function Technologies() {
 
   const technologies = [
     {
@@ -153,14 +153,13 @@ const Technologies = () => {
     },
   ]
 
-
   return (
       <section id='technologies'>
-        <Motion.div  initial={{opacity: 0, y: 100}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ type: 'spring', damping: 15, bounce: 0.30}} className='tech-content'>
+        <Motion.div  initial={{opacity: 0, y: 100}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'easeInOut'}} className='tech-content'>
           <h2>Technologies I use<span>.</span></h2>
           <p>I have experience working with a wide range of technologies over the years. Here are some of the technologies I am familiar with:</p>
 
-          <Motion.div  initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ type: 'spring', damping: 15, bounce: 0.30}} className='tools-container'>
+          <Motion.div  initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'easeInOut' }} className='tools-container'>
             {
               technologies.map((tec) => (
                 <Link className='tech-tools' key={tec.id} to={tec.link}>
@@ -175,6 +174,6 @@ const Technologies = () => {
         </Motion.div>
       </section>
   )
-}
+})
 
 export default Technologies

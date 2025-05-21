@@ -1,9 +1,9 @@
 
-import React, { useEffect, useRef } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import CustomDropdown from './Custom-dropdown';
 import { motion as Motion } from "motion/react";
 
-const Settings = ({ isModelOpen, setIsModalOpen }) => {
+const Settings = memo ( function Settings ({ isModelOpen, setIsModalOpen }){
 
     // const [isModelOpen, setIsModalOpen] = useState(true);
     const settingsRef = useRef(null);
@@ -37,6 +37,6 @@ const Settings = ({ isModelOpen, setIsModalOpen }) => {
             </Motion.div>
         </div>)
     )
-}
+})
 
 export default Settings

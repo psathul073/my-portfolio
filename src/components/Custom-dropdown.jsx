@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
 import Icons from './Icons';
 import { useTheme } from '../context/ThemeContext';
 
-const CustomDropdown = () => {
+const CustomDropdown = memo( function CustomDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState('system');
   const dropdownRef = useRef(null);
@@ -37,8 +37,6 @@ const CustomDropdown = () => {
     setIsOpen(false);
   };
  
-
-
   return (
     <div id="custom-dropdown" ref={dropdownRef}>
       <button className="dropdown-toggle" onClick={() => setIsOpen((prev) => !prev)}>
@@ -59,6 +57,6 @@ const CustomDropdown = () => {
       )}
     </div>
   );
-};
+});
 
 export default CustomDropdown;
