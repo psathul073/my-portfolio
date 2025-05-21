@@ -1,0 +1,13 @@
+.drone-container {
+    height: 100%;
+    height: 560px;
+    width: 90%;
+    max-width: 560px;
+    cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+    .drone-container {
+    height: 400px;
+    max-width: 400px;
+}
+}

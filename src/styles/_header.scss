@@ -1,0 +1,97 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    @include flex-center;
+    background-color: transparent;
+    color: var(--text-color);
+    background-color: transparent;
+    --webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+nav {
+    width: 90%;
+    max-width: 460px;
+    height: 48px;
+    margin-top: 30px;
+    border: var(--border);
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+    // box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 8px;
+    box-shadow: var(--shadow);
+
+    ul {
+        @include flex-center;
+        height: 100%;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        justify-content: space-evenly;
+    }
+
+    li {
+        @include flex-center;
+
+        a {
+            @include flex-center;
+            position: relative;
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 11px;
+
+            .icon {          
+            // height: 24px;
+            // width: 24px;
+            // padding: 3px;
+            font-size: 1.1rem;
+            transition: color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+            .icon.active{
+                 color: #4ade80;
+            }
+           
+        }
+
+        &:hover {
+            #tooltip {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0px);
+            }
+           
+        }
+
+        &:first-child {
+            a {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-weight: 800;
+                ;
+                font-size: 1.125rem;
+            }
+
+            a span {
+                color: #4a65de;
+            }
+            a span.active{
+                color: #4ade80;
+            }
+
+        }
+        &:hover:not(:first-child) {
+             border-radius: 6px;
+            //  background-color: #111827;
+            background-color: var(--primary-hover-color);
+        }
+    }
+
+
+}

@@ -1,0 +1,61 @@
+
+.settings-overlay{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 0 10px;
+    z-index: 999;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background-color: var(--bg-color-2);
+    .settings{
+        position: relative;
+        max-width: 460px;
+        height: fit-content;
+        top: 15%;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        h2{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2em;
+            padding: 0 5px;
+            border-radius: 4px;
+            background-color: var(--bg-color-2);
+            color: var(--text-color);
+            button{
+                background-color: transparent;
+                border: none;
+                color: var(--text-color);
+                font-size: 1.5rem;
+                transition: color 0.3s ease-in-out;
+                cursor: pointer;
+                &:hover{
+                    color: red;
+                }
+            }
+        }
+        p{
+            padding: 15px 5px;
+        }
+        .settings-options{
+            height: 180px;
+            padding:  5px;
+            background-color: var(--secondary-color);
+            .theme{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: var(--border);
+                padding: 6px 0;
+            }
+        }
+    }
+}

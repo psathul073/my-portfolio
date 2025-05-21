@@ -1,0 +1,37 @@
+// Import the necessary modules
+@use './styles/theme';
+@use './styles/header';
+@use './styles/tooltip';
+@use './styles/home';
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100dvh;
+  width: 100dvw;
+  // background-color: var(--bg-color);
+  font-family: "Space Mono", monospace;
+  overflow: hidden;
+  overflow-y: auto;
+  &::-webkit-scrollbar{
+    width: 0;
+  }
+}
+
+body.dark {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+main{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

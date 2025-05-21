@@ -1,0 +1,95 @@
+@mixin wave-lines {
+    background: rgba(130, 130, 130, 0.2);
+    background: -webkit-gradient(linear,
+            left top,
+            right top,
+            color-stop(8%, rgba(130, 130, 130, 0.2)),
+            color-stop(18%, rgba(130, 130, 130, 0.3)),
+            color-stop(33%, rgba(130, 130, 130, 0.2)));
+    background: linear-gradient(to right,
+            rgba(130, 130, 130, 0.2) 8%,
+            rgba(130, 130, 130, 0.3) 18%,
+            rgba(130, 130, 130, 0.2) 33%);
+    background-size: 800px 100px;
+    animation: wave-lines 2s infinite ease-out;
+}
+
+.project-sk {
+    width: 100%;
+    max-width: 1224px;
+    padding: 10px 0;
+    border-bottom: var(--border);
+    // background-color: aqua;
+
+    .title {
+        width: 260px;
+        height: 30px;
+        margin: 10px 0;
+        border-radius: 4px;
+        @include wave-lines;
+    }
+
+    .date-sk {
+        width: 100px;
+        height: 20px;
+        margin: 10px 0;
+        border-radius: 4px;
+        @include wave-lines;
+
+    }
+
+    .description-sk {
+        width: 100%;
+        max-width: 800px;
+        height: 60px;
+        margin: 10px 0;
+        border-radius: 4px;
+        @include wave-lines;
+    }
+
+    .image-sk {
+        align-content: center;
+        text-align: center;
+        font-size: 2em;
+        height: 560px;
+        width: 100%;
+        margin: 10px 0;
+        border-radius: 4px;
+        background: rgba(130, 130, 130, 0.2);
+    }
+
+    .tags-sk {
+
+        // display: inline;
+        div {
+            display: inline-block;
+            margin: 5px;
+            border-radius: 4px;
+            margin-left: 10px;
+            width: 100px;
+            height: 28px;
+            background-color: darkgreen;
+            @include wave-lines;
+        }
+    }
+
+    @keyframes wave-lines {
+        0% {
+            background-position: -468px 0;
+        }
+
+        100% {
+            background-position: 468px 0;
+        }
+    }
+
+}
+
+@media screen and (max-width: 767px) {
+    .project-sk {
+
+        .image-sk {
+            height: 200px;
+        }
+    }
+}

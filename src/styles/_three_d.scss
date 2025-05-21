@@ -1,0 +1,45 @@
+#three-d-project {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+    padding: 20px 15px;
+    margin-top: 20px;
+    gap: 100px;
+    // height: 100vh;
+    width: 100vw;
+    max-width: 1440px;
+    background-color: transparent;
+    // background-color: aqua;
+    --webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+
+    .three-dP-container {
+        color: var(--text-color);
+        width: 100%;
+        max-width: 1224px;
+        // background-color: rgb(173, 143, 103);
+
+        h2 {
+            align-self: flex-start;
+            font-size: 1.5em;
+            font-weight: 900;
+
+            span {
+                color: #4ade80;
+            }
+        }
+
+        p {
+            font-size: clamp(0.9em, 1vw + 00.5em, 1em);
+            color: var(--text-color);
+            padding: 10px 0;
+            // color: blue;
+        }
+    }
+
+}
