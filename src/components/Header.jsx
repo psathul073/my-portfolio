@@ -1,34 +1,33 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import Tooltip from './Tooltip';
 import Icons from './Icons';
 import { motion as Motion } from "motion/react";
 
-const Header = memo( function Header({ setIsModalOpen, aboutRef, aboutClick }) {
+const Header = ({ setIsModalOpen, aboutRef, aboutClick }) => {
 
   const [active, setActive] = useState(() => localStorage.getItem('activeNav') || 'home');
 
-    useEffect(() => {
-      
-      if (active == 'about') {
-        aboutRef?.current?.scrollIntoView({ behavior: "smooth" });
-      }
-      const activeNav = () => {
-        localStorage.setItem('activeNav', active);
-      }
-      activeNav();
-  
-    }, [active, aboutRef])
+  useEffect(() => {
+
+    if (active == 'about') {
+      aboutRef?.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    const activeNav = () => {
+      localStorage.setItem('activeNav', active);
+    }
+    activeNav();
+
+  }, [active, aboutRef])
 
   return (
     <Motion.header initial={{ opacity: 0, y: -50 }}
-      transition={{
-        duration: 0.2,
-        damping: 100,
-        scale: { type: "spring", visualDuration: 0.2, bounce: 0.5 },
-      }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -50 }}>
+      transition={{
+        duration: 0.6,
+        ease: 'easeOut'
+      }}
+    >
       <nav>
         <ul>
           <li onClick={() => setActive('home')}><Link to="/">ATHUL <span className={active == 'home' ? 'active' : ''}>.</span></Link><Tooltip data={"Home"} /></li>
@@ -40,6 +39,6 @@ const Header = memo( function Header({ setIsModalOpen, aboutRef, aboutClick }) {
       </nav>
     </Motion.header>
   )
-})
+}
 
 export default Header

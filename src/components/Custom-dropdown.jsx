@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect, memo } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Icons from './Icons';
 import { useTheme } from '../context/ThemeContext';
 
-const CustomDropdown = memo( function CustomDropdown() {
+const CustomDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState('system');
   const dropdownRef = useRef(null);
@@ -57,6 +57,6 @@ const CustomDropdown = memo( function CustomDropdown() {
       )}
     </div>
   );
-});
+};
 
 export default CustomDropdown;

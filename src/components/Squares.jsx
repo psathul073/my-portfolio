@@ -1,6 +1,6 @@
-import { useRef, useEffect, memo } from 'react';
+import { useRef, useEffect } from 'react';
 
-const Squares = memo( function Squares({
+const Squares = ({
   direction = 'right',
   speed = 1,
   borderColor = '#94a3b8',
@@ -8,7 +8,7 @@ const Squares = memo( function Squares({
   hoverFillColor = '#f9fafb',
   lineWidth = 1,
   className = ''
-}) {
+}) => {
   const canvasRef = useRef(null);
   const requestRef = useRef(null);
   const numSquaresX = useRef();
@@ -141,6 +141,6 @@ const Squares = memo( function Squares({
   }, [direction, speed, borderColor, hoverFillColor, squareSize, lineWidth]);
 
   return <canvas ref={canvasRef} className={`squares-canvas ${className}`} style={customStyle}></canvas>;
-});
+};
 
 export default Squares;

@@ -15,8 +15,10 @@ body {
   width: 100dvw;
   // background-color: var(--bg-color);
   font-family: "Space Mono", monospace;
-  overflow: hidden;
+  overflow-x: hidden;
   overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
   &::-webkit-scrollbar{
     width: 0;
   }

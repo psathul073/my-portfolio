@@ -10,7 +10,7 @@ const Footer = () => {
                 <footer className='footer-content'>
                     <div className='divider'></div>
                     <p>Copyright &copy; 2025 - {currentYear} Athul PS</p>
-                    <Motion.div  initial={{opacity: 0, y: 100}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} className='links'>
+                    <Motion.div  initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} className='links'>
                         <ul>
                             <p>Important &#x1F517;</p>
                             <li><Link to={'/'}>Home</Link></li>
@@ -21,7 +21,7 @@ const Footer = () => {
                             <p>Social</p>
                             <li><Link to={'https://www.instagram.com/d9.coder/'}>Instagram</Link></li>
                             <li><Link to={'https://github.com/psathul073/'}>Github</Link></li>
-                            <li><Link to={'https://www.linkedin.com/in/athul-p-s-742b53363'}>Linkedin</Link></li>
+                            <li><Link to={'https://www.linkedin.com/in/athul-fullstack'}>Linkedin</Link></li>
                         </ul>
                         <ul>
                             <p>Other</p>

@@ -12,9 +12,8 @@ import ProjectSkelton from './Project-skelton';
 import Technologies from './Technologies';
 import Contact from './Contact';
 import Footer from './Footer';
-import { memo } from 'react';
 
-const Home = memo ( function Home(){
+const Home = () => {
 
   const [isModelOpen, setIsModalOpen] = useState(false);
   const [githubStatus, setGithubStatus] = useState({});
@@ -96,10 +95,10 @@ const Home = memo ( function Home(){
           </div>
 
           <div className='github-data'>
-            <Motion.p initial={{opacity: 0, x: -500}} animate={{opacity: 1, x: 0}} transition={{ type: 'spring', duration: 0.9}}  className='text'><Icons name={"github"} className={'icon'} /> Followers: {githubStatus?.followers ?? 369}</Motion.p>
-            <Motion.p initial={{opacity: 0, scale: 0}} animate={{opacity: 1, scale: 1}} transition={{ type: 'spring', duration: 0.9}}  className='text'><Icons name={"star"} className={'icon'} /> Stars: {githubStatus?.stars ?? 369}</Motion.p>
-            <Motion.p initial={{opacity: 0, scale: 0}} animate={{opacity: 1, scale: 1}} transition={{ type: 'spring', duration: 0.9}}  className='text'><Icons name={"fork"} className={'icon'} /> Forks: {githubStatus?.forks ?? 369}</Motion.p>
-            <Motion.p initial={{opacity: 0, x: 500}} animate={{opacity: 1, x: 0}} transition={{ type: 'spring', duration: 0.9}}  className='text'><Icons name={"commit"} className={'icon'} /> Commits: {githubStatus?.commits ?? 369}</Motion.p>
+            <Motion.p initial={{opacity: 0, x: -50}} animate={{opacity: 1, x: 0}} transition={{ duration: 0.6, ease: 'easeOut' }}  className='text'><Icons name={"github"} className={'icon'} /> Followers: {githubStatus?.followers ?? 369}</Motion.p>
+            <Motion.p initial={{opacity: 0, scale: 0.8}} animate={{opacity: 1, scale: 1}} transition={{duration: 0.6, ease: 'easeOut'}}  className='text'><Icons name={"star"} className={'icon'} /> Stars: {githubStatus?.stars ?? 369}</Motion.p>
+            <Motion.p initial={{opacity: 0, scale: 0.8}} animate={{opacity: 1, scale: 1}} transition={{ duration: 0.6, ease: 'easeOut'}}  className='text'><Icons name={"fork"} className={'icon'} /> Forks: {githubStatus?.forks ?? 369}</Motion.p>
+            <Motion.p initial={{opacity: 0, x: 50}} animate={{opacity: 1, x: 0}} transition={{ duration: 0.6, ease:'easeOut'}}  className='text'><Icons name={"commit"} className={'icon'} /> Commits: {githubStatus?.commits ?? 369}</Motion.p>
           </div>
 
         </section>
@@ -110,7 +109,7 @@ const Home = memo ( function Home(){
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }} // triggers when 20% is visible
-            transition={{ duration: 0.3, ease: 'easeIn' }} className='about-content'>
+            transition={{ duration: 0.6, ease: 'easeOut' }} className='about-content'>
             <h1>About Me<span>.</span></h1>
             <p>
               Hey! I'm Athul, a self-taught Full Stack Developer from Kerala, India. I love building web apps with React, Node.js, and PostgreSQL, and I'm always experimenting with new tools and ideas. <br />
@@ -125,8 +124,9 @@ const Home = memo ( function Home(){
 
           </Motion.div>
 
-          <Motion.div initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'circInOut' }} className='img-container'>
-            <img rel='preload' src="/image/my.png" alt="profile img" loading='lazy' />
+          <Motion.div initial={{opacity: 0, scale: 0.8}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut' }} className='img-container'>
+            
+            <img  src="/image/my.png" alt="profile img" loading='lazy' />
 
             <div className='img-text'>
 
@@ -137,7 +137,7 @@ const Home = memo ( function Home(){
                 <Link to={'https://github.com/psathul073/'}><Icons name={'gh'} className={'icon'} /> </Link>
                 <Link><Icons name={'yt'} className={'icon'} /> </Link>
                 <Link to={'https://www.instagram.com/d9.coder/'}><Icons name={'ig'} className={'icon'} /></Link>
-                <Link to={'https://www.linkedin.com/in/athul-p-s-742b53363'}><Icons name={'linkedin'} className={'icon'} /></Link>
+                <Link to={'https://www.linkedin.com/in/athul-fullstack'}><Icons name={'linkedin'} className={'icon'} /></Link>
               </div>
 
             </div>
@@ -147,7 +147,7 @@ const Home = memo ( function Home(){
 
         <section id='recent-project'>
 
-          <Motion.div initial={{opacity: 0, y: 100}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'easeInOut' }} className='project-container'>
+          <Motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut' }} className='project-container'>
 
             <h2>Recent Projects<span>.</span></h2>
             <p>Explore some of my latest projects below, and for more, visit my GitHub profile.</p>
@@ -159,7 +159,7 @@ const Home = memo ( function Home(){
                 :
                 githubRepo?.map((project, index) => (
 
-                  <Motion.div  initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease:'circInOut' }} className='project' key={index}>
+                  <Motion.div  initial={{opacity: 0, scale: 0.8 }} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut' }} className='project' key={index}>
                     <h3>{project.name}</h3>
                     <p className='date'>{project.created_at.split('T')[0]}</p>
                     <p className='description'>{project.description}</p>
@@ -187,7 +187,7 @@ const Home = memo ( function Home(){
 
             }
 
-            <Motion.div  initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'easeIn'}} className='more-project'>
+            <Motion.div  initial={{opacity: 0, scale: 0.8 }} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut' }} className='more-project'>
               <p>Would you like to view more of my work?</p>
               <div className='links'>
                 <Link to={"/projects"}>View more projects <Icons name={'arrowRight'} className={'icon'} /> </Link>
@@ -207,7 +207,7 @@ const Home = memo ( function Home(){
       </main>
     </>
   )
-});
+};
 
 
 export default Home

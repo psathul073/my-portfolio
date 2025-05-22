@@ -87,6 +87,7 @@
                 }
 
                 &:hover {
+                    cursor: pointer;
                     .img-btns {
                         opacity: 1;
                         transform: translateY(0px);
@@ -108,7 +109,7 @@
                     padding: 15px;
                     border: var(--border);
                     transform: translateY(10px);
-                    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+                    transition: all 0.3s ease-out;
 
                     button {
                         display: flex;

@@ -23,6 +23,8 @@
     background-color: transparent;
     --webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
+    scroll-behavior: smooth;
+    touch-action: pan-y;
     z-index: 1;
     // background-color: aqua;
 }

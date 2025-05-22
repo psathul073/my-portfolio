@@ -2,14 +2,16 @@ import { Canvas } from "@react-three/fiber";
 import { Html, PositionalAudio, useProgress } from "@react-three/drei";
 import Drone from "./Drone-viewer";
 import { Suspense, useRef, memo } from "react";
+import Icons from "./Icons";
 
 const RoboDrone = memo( function RoboDrone() {
 
   const audioRef = useRef();
 
   function Loader() {
-    const { progress } = useProgress();
-    return <Html center style={{ textWrap: 'nowrap' }}>{progress}% loaded</Html>;
+    // const { progress } = useProgress();
+    // return <Html center style={{ textWrap: 'nowrap', color: '#4a65de' }}>{progress}% loaded</Html>;
+    return <Html><Icons name={'loading'} /> </Html>;
   }
 
   return (

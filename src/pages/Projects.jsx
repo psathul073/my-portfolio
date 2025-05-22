@@ -68,14 +68,14 @@ const Projects = memo( function Projects() {
 
       <section id='recent-project' className='full-project'>
 
-        <Motion.div initial={{opacity: 0, y: 100}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'easeInOut'}} className='project-container'>
+        <Motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut'}} className='project-container'>
 
           <h2>Recent Projects<span>.</span></h2>
           <p>Explore some of my latest projects below, and for more, visit my GitHub profile.</p>
           {
             skelton ? <><ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> </> : ghRepo?.map((project, index) => (
 
-              <Motion.div initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'circInOut'}} className='project' key={index}>
+              <Motion.div initial={{opacity: 0, scale: 0.8 }} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut' }} className='project' key={index}>
                 <h3>{project?.name}</h3>
                 <p className='date'>{project.created_at.split('T')[0]}</p>
                 <p className='description'>{project.description}</p>
@@ -106,7 +106,7 @@ const Projects = memo( function Projects() {
           <div className='more-project'>
             <p>Would you like to see more of my work? Check out my GitHub profile and give me some contributions; let's build together.</p>
 
-            <Motion.div initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{duration: 0.3, ease: 'easeInOut'}} className='links'>
+            <Motion.div initial={{opacity: 0, scale: 0.8 }} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{duration: 0.6, ease: 'easeOut'}} className='links'>
               <Link to={"https://github.com/psathul073/"}><Icons name={'gh'} className={'icon'} /> View my Github <Icons name={'arrowRight'} className={'icon'} /> </Link>
               <Link to={'/three-d'}> 3D Projects <Icons name={'three_d'} className={'icon'} /></Link>
             </Motion.div>

@@ -1,11 +1,11 @@
-import { memo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import Icons from './Icons';
 import { SendMail } from '../API/githubData';
 import { motion as Motion } from 'motion/react';
 
-const Contact = memo ( function Contact() {
+const Contact = () => {
     const { register, handleSubmit, reset } = useForm();
     const [charLength, setCharLength] = useState(0);
     const [isDisable, setIsDisable] = useState(false);
@@ -25,21 +25,21 @@ const Contact = memo ( function Contact() {
 
     };
     
-    const handleChange = (e) => {
+    const handleChange = useCallback ( (e) => {
         const message = e.target.value;
         setCharLength(message.length);
-    }
+    },[]);
 
     return (
 
         <main>
             <section id='contact'>
 
-                <Motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'easeInOut'} } className='contact-content'>
+                <Motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut'} } className='contact-content'>
                     <h2>Contact me<span>.</span></h2>
                     <p>I’m always looking to grow, learn, and connect with others in tech. Got feedback, a tip, or an opportunity? I’d love to hear from you.</p>
 
-                    <Motion.form initial={{opacity: 0, scale: 0}} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'circInOut' }} onSubmit={handleSubmit(onSubmit)} className="contact-form">
+                    <Motion.form initial={{opacity: 0, scale: 0.8 }} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut' }} onSubmit={handleSubmit(onSubmit)} className="contact-form">
 
                         <div className='name-email'>
 
@@ -65,11 +65,11 @@ const Contact = memo ( function Contact() {
                     </Motion.form>
 
                     <p>Or get in touch with me:</p>
-                    <Motion.ul initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.3, ease: 'easeIn'}}>
+                    <Motion.ul initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut'}}>
                         <li><Link to={'mailto:psathul073@gmail.com'}><Icons name={'gmail'} />Email <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
                         <li><Link to={'https://www.instagram.com/d9.coder/'}><Icons name={'ig_c'} />Instagram <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
                         <li><Link to={'https://www.facebook.com/people/D9-Coder/61572788624684/'}><Icons name={'fb'} />Facebook <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
-                        <li><Link to={'https://www.linkedin.com/in/athul-p-s-742b53363'}><Icons name={'linkedin_c'} />Linkedin <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
+                        <li><Link to={'https://www.linkedin.com/in/athul-fullstack'}><Icons name={'linkedin_c'} />Linkedin <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
                     </Motion.ul>
 
                 </Motion.div>
@@ -78,6 +78,6 @@ const Contact = memo ( function Contact() {
         </main>
 
     )
-});
+};
 
 export default Contact
