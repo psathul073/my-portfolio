@@ -20,7 +20,7 @@
         color: var(--text-color);
         width: 100%;
         max-width: 1224px;
-        will-change: 'transform';
+        will-change: 'opacity';
         // background-color: rgb(173, 143, 103);
 
         h2 {
@@ -51,7 +51,6 @@
             flex-wrap: wrap;
             gap: 8px;
             padding-top: 20px;
-            will-change: 'transform';
             // background-color: #4ade80;
 
             .tech-tools {
@@ -63,9 +62,10 @@
                 padding: 1px 8px;
                 border-radius: 4px;
                 border: var(--border);
-                box-shadow: var(--shadow);
+                box-shadow: var(--shadow-inset);
                 // font-size: clamp(1em, 1vw + 0.05em, 1em);
-                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                // transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                will-change: 'transform';
                 cursor: pointer;
 
                 svg {

@@ -70,7 +70,7 @@ const Projects = memo(function Projects() {
       <main>
         <section id='recent-project'>
           
-          <Motion.div initial={{ y: 50 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='project-container'>
+          <Motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='project-container'>
 
             <h2>Recent Projects<span>.</span></h2>
             <p>Explore some of my latest projects below, and for more, visit my GitHub profile.</p>

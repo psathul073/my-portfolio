@@ -27,7 +27,7 @@ const About = ({ aboutRef }) => {
 
           </Motion.div>
 
-          <Motion.div initial={{ scale: 0.9}} whileInView={{ scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='img-container'>
+          <Motion.div initial={{ opacity: 0}} whileInView={{ opacity: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='img-container'>
             
             <img src="/image/my.webp" alt="profile img" loading='lazy' />
 

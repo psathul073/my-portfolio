@@ -9,7 +9,7 @@ const RecentProject = ({ ghRepo }) => {
             {
                 ghRepo?.map((project, index) => (
 
-                    <Motion.div initial={{ scale: 0.9 }} whileInView={{ scale: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='project' key={index}>
+                    <Motion.div initial={{ y: 10 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='project' key={index}>
                         <h3>{project?.name}</h3>
                         <p className='date'>{project.created_at.split('T')[0]}</p>
                         <p className='description'>{project.description}</p>

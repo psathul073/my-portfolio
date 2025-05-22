@@ -155,11 +155,11 @@ const Technologies = memo ( function Technologies() {
 
   return (
       <section id='technologies'>
-        <Motion.div  initial={{ y: 10}} whileInView={{ y: 0 }}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='tech-content'>
+        <Motion.div  initial={{ opacity: 0}} whileInView={{ opacity: 1 }}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='tech-content'>
           <h2>Technologies I use<span>.</span></h2>
           <p>I have experience working with a wide range of technologies over the years. Here are some of the technologies I am familiar with:</p>
 
-          <Motion.div  initial={{ y: 15}} whileInView={{ y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='tools-container'>
+          <Motion.div  initial={{ y: 10}} whileInView={{ y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='tools-container'>
             {
               technologies.map((tec) => (
                 <Link className='tech-tools' key={tec.id} to={tec.link}>

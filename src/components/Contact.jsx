@@ -35,11 +35,11 @@ const Contact = () => {
         <main>
             <section id='contact'>
 
-                <Motion.div initial={{ y: 10 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut'} } className='contact-content'>
+                <Motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut'} } className='contact-content'>
                     <h2>Contact me<span>.</span></h2>
                     <p>I’m always looking to grow, learn, and connect with others in tech. Got feedback, a tip, or an opportunity? I’d love to hear from you.</p>
 
-                    <Motion.form initial={{ scale: 0.9 }} whileInView={{ scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} onSubmit={handleSubmit(onSubmit)} className="contact-form">
+                    <Motion.form initial={{ y: 10 }} whileInView={{ y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} onSubmit={handleSubmit(onSubmit)} className="contact-form">
 
                         <div className='name-email'>
 
@@ -65,7 +65,7 @@ const Contact = () => {
                     </Motion.form>
 
                     <p>Or get in touch with me:</p>
-                    <Motion.ul initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut'}}>
+                    <Motion.ul initial={{ y: 10 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut'}} style={{ willChange:'transform'}}>
                         <li><Link to={'mailto:psathul073@gmail.com'}><Icons name={'gmail'} />Email <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
                         <li><Link to={'https://www.instagram.com/d9.coder/'}><Icons name={'ig_c'} />Instagram <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
                         <li><Link to={'https://www.facebook.com/people/D9-Coder/61572788624684/'}><Icons name={'fb'} />Facebook <Icons name={'arrowRight'} className={'icon'} /> </Link></li>

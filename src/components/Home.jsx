@@ -91,12 +91,12 @@ const Home = () => {
             <RoboDrone />
           </div>
 
-          <div className='github-data'>
-            <Motion.p initial={{ x: -20 }} animate={{ x: 0 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='text'><Icons name={"github"} className={'icon'} /> Followers: {githubStatus?.followers ?? 369}</Motion.p>
-            <Motion.p initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='text'><Icons name={"star"} className={'icon'} /> Stars: {githubStatus?.stars ?? 369}</Motion.p>
-            <Motion.p initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='text'><Icons name={"fork"} className={'icon'} /> Forks: {githubStatus?.forks ?? 369}</Motion.p>
-            <Motion.p initial={{ x: 20 }} animate={{ x: 0 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='text'><Icons name={"commit"} className={'icon'} /> Commits: {githubStatus?.commits ?? 369}</Motion.p>
-          </div>
+          <Motion.div initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='github-data'>
+            <p className='text'><Icons name={"github"} className={'icon'} /> Followers: {githubStatus?.followers ?? 369}</p>
+            <p className='text'><Icons name={"star"} className={'icon'} /> Stars: {githubStatus?.stars ?? 369}</p>
+            <p className='text'><Icons name={"fork"} className={'icon'} /> Forks: {githubStatus?.forks ?? 369}</p>
+            <p className='text'><Icons name={"commit"} className={'icon'} /> Commits: {githubStatus?.commits ?? 369}</p>
+          </Motion.div>
 
         </section>
 
@@ -104,7 +104,7 @@ const Home = () => {
 
         <section id='recent-project'>
 
-          <Motion.div initial={{ y: 10 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='project-container'>
+          <Motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='project-container'>
 
             <h2>Recent Projects<span>.</span></h2>
             <p>Explore some of my latest projects below, and for more, visit my GitHub profile.</p>
