@@ -7,8 +7,9 @@ import { Link } from 'react-router';
 import Icons from '../components/Icons';
 import ProjectSkelton from '../components/Project-skelton';
 import { motion as Motion } from 'motion/react';
+import RecentProject from '../components/Recent-project';
 
-const Projects = memo( function Projects() {
+const Projects = memo(function Projects() {
   const [isModelOpen, setIsModalOpen] = useState(false);
   const [ghRepo, setGhRepo] = useState([]);
   const [skelton, setSkelton] = useState(false);
@@ -66,56 +67,25 @@ const Projects = memo( function Projects() {
 
       <Settings isModelOpen={isModelOpen} setIsModalOpen={setIsModalOpen} />
 
-      <section id='recent-project' className='full-project'>
+      <main>
+        <section id='recent-project'>
+          
+          <Motion.div initial={{ y: 50 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='project-container'>
 
-        <Motion.div initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut'}} className='project-container'>
+            <h2>Recent Projects<span>.</span></h2>
+            <p>Explore some of my latest projects below, and for more, visit my GitHub profile.</p>
 
-          <h2>Recent Projects<span>.</span></h2>
-          <p>Explore some of my latest projects below, and for more, visit my GitHub profile.</p>
-          {
-            skelton ? <><ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> </> : ghRepo?.map((project, index) => (
+            { skelton ? <><ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> <ProjectSkelton /> </> : <RecentProject ghRepo={ghRepo} />}
 
-              <Motion.div initial={{opacity: 0, scale: 0.8 }} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.6, ease: 'easeOut' }} className='project' key={index}>
-                <h3>{project?.name}</h3>
-                <p className='date'>{project.created_at.split('T')[0]}</p>
-                <p className='description'>{project.description}</p>
+          </Motion.div>
 
-                <div className='image'>
-                  <img src={`/image/${project.name}.png`} alt={project.name} loading='lazy' />
-
-                  <div className='img-btns'>
-                    <button><Link to={project.homepage}>Demo <Icons name={'source'} className={'icon'} /></Link> </button>
-                    <button><Link to={project.svn_url}>Code<Icons name={'code'} className={'icon'} /></Link></button>
-                  </div>
-
-                </div>
-
-                <ul className='tags'>
-                  {project.languages && Object.keys(project.languages).map((key) => (
-                    <li key={key}><Icons name={key} />{key}</li>
-                  ))
-                  }
-                </ul>
-
-              </Motion.div>
-
-            ))
-
-          }
-
-          <div className='more-project'>
-            <p>Would you like to see more of my work? Check out my GitHub profile and give me some contributions; let's build together.</p>
-
-            <Motion.div initial={{opacity: 0, scale: 0.8 }} whileInView={{opacity: 1, scale: 1}}  viewport={{ once: true, amount: 0.2 }} transition={{duration: 0.6, ease: 'easeOut'}} className='links'>
-              <Link to={"https://github.com/psathul073/"}><Icons name={'gh'} className={'icon'} /> View my Github <Icons name={'arrowRight'} className={'icon'} /> </Link>
-              <Link to={'/three-d'}> 3D Projects <Icons name={'three_d'} className={'icon'} /></Link>
-            </Motion.div>
-          </div>
+        </section>
+      </main>
 
 
-        </Motion.div>
 
-      </section>
+
+
 
     </>
   )

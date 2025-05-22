@@ -20,6 +20,7 @@
         color: var(--text-color);
         width: 100%;
         max-width: 1224px;
+        will-change: 'transform';
         // background-color: rgb(173, 143, 103);
 
         h2 {
@@ -50,6 +51,7 @@
             flex-wrap: wrap;
             gap: 8px;
             padding-top: 20px;
+            will-change: 'transform';
             // background-color: #4ade80;
 
             .tech-tools {

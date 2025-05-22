@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import Tooltip from './Tooltip';
 import Icons from './Icons';
-import { motion as Motion } from "motion/react";
 
 const Header = ({ setIsModalOpen, aboutRef, aboutClick }) => {
 
@@ -21,13 +20,7 @@ const Header = ({ setIsModalOpen, aboutRef, aboutClick }) => {
   }, [active, aboutRef])
 
   return (
-    <Motion.header initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.6,
-        ease: 'easeOut'
-      }}
-    >
+    <header>
       <nav>
         <ul>
           <li onClick={() => setActive('home')}><Link to="/">ATHUL <span className={active == 'home' ? 'active' : ''}>.</span></Link><Tooltip data={"Home"} /></li>
@@ -37,7 +30,7 @@ const Header = ({ setIsModalOpen, aboutRef, aboutClick }) => {
           <li onClick={() => setIsModalOpen(true)}><Link to=""><Icons name={"setting"} className={"icon"} /></Link><Tooltip data={"Settings"} /></li>
         </ul>
       </nav>
-    </Motion.header>
+    </header>
   )
 }
 

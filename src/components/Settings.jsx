@@ -26,7 +26,7 @@ const Settings = ({ isModelOpen, setIsModalOpen }) => {
 
     return (
         isModelOpen && (<div className='settings-overlay'>
-            <Motion.div initial={{opacity: 0, scale: 0.8}} animate={{ opacity: 1, scale: 1}} transition={{ duration: 0.5, ease: 'easeOut' }} className='settings' ref={settingsRef}>
+            <Motion.div initial={{ scale: 0.9}} animate={{ scale: 1}} transition={{ duration: 0.5, ease: 'easeOut' }} className='settings' ref={settingsRef}>
 
                 <h2>Settings <button onClick={() => setIsModalOpen(false)}>〤</button> </h2>
                 <p>Change the settings of the application.</p>

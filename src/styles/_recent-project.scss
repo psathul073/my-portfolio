@@ -6,7 +6,7 @@
     // justify-content: space-evenly;
     overflow: hidden;
     padding: 20px 15px;
-    margin-top: 30px;
+    margin-top: 10px;
     gap: 60px;
     // height: 100vh;
     width: 100vw;
@@ -21,6 +21,7 @@
         color: var(--text-color);
         width: 100%;
         max-width: 1224px;
+        will-change: 'transform';
         // background-color: rgb(173, 143, 103);
 
         h2 {
@@ -46,6 +47,7 @@
             // background-color: coral;
             width: fit-content;
             border-bottom: var(--border);
+            will-change: 'transform';
 
             h3 {
                 font-size: 1.2em;
@@ -246,10 +248,10 @@
     }
 }
 
-#recent-project.full-project {
-    left: 50%;
-    transform: translateX(-50%);
-}
+// #recent-project.full-project {
+//     left: 50%;
+//     transform: translateX(-50%);
+// }
 
 @media screen and (max-width: 767px) {
     #recent-project {

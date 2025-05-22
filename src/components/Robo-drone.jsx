@@ -1,8 +1,9 @@
 import { Canvas } from "@react-three/fiber";
 import { Html, PositionalAudio, useProgress } from "@react-three/drei";
-import Drone from "./Drone-viewer";
-import { Suspense, useRef, memo } from "react";
+// import Drone from "./Drone-viewer";
+import React, { Suspense, useRef, memo } from "react";
 import Icons from "./Icons";
+const Drone = React.lazy( () => import('./Drone-viewer'));
 
 const RoboDrone = memo( function RoboDrone() {
 

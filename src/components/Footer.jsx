@@ -10,7 +10,7 @@ const Footer = () => {
                 <footer className='footer-content'>
                     <div className='divider'></div>
                     <p>Copyright &copy; 2025 - {currentYear} Athul PS</p>
-                    <Motion.div  initial={{opacity: 0, y: 50}} whileInView={{opacity: 1, y: 0}}  viewport={{ once: true, amount: 0.2 }} className='links'>
+                    <Motion.div  initial={{y: 20}} whileInView={{ y: 0}}  viewport={{ once: true, amount: 0.2 }} className='links'>
                         <ul>
                             <p>Important &#x1F517;</p>
                             <li><Link to={'/'}>Home</Link></li>

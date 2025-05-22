@@ -21,6 +21,7 @@
         border-radius: 8px;
         background-color: var(--bg-color);
         color: var(--text-color);
+        will-change: 'transform';
         h2{
             display: flex;
             justify-content: space-between;

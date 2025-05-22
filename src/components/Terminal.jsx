@@ -9,12 +9,12 @@ const Terminal = memo( function Terminal() {
 
     <div className="terminal-container">
 
-      <Motion.div initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
+      <Motion.div initial={{ y: 10 }}
+        animate={{ y: 0 }}
         transition={{
-          duration: 0.6,
-          ease: [0, 0.71, 0.2, 1.01],
-        }} id="terminal">
+          duration: 0.5,
+          ease: 'easeOut',
+        }} id="terminal" >
 
         <div className="main-head">
           <div className="h-1">
@@ -100,8 +100,8 @@ const Terminal = memo( function Terminal() {
         </div>
       </Motion.div>
 
-      <Motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{
-        duration: 0.6, ease: 'easeOut'
+      <Motion.div initial={{ y: -10 }} animate={{ y: 0 }} transition={{
+        duration: 0.5, ease: 'easeOut'
       }} className='terminal-btns'>
         <Link to={'https://drive.google.com/file/d/1Ovw45E0vEuoPBfBNYwzbKgi--aYwshEw/view?usp=sharing'}>Resume <Icons name={"download"} className={'icon'} /> </Link>
         <Link to={'/contact'}>Contact me <Icons name={"arrow"} className={'icon'} /></Link>

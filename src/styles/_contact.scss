@@ -34,6 +34,7 @@
         color: var(--text-color);
         width: 100%;
         max-width: 1224px;
+        will-change: 'transform';
         // background-color: rgb(173, 143, 103);
 
         h2 {
@@ -64,6 +65,7 @@
             background-color: var(--bg-color-2);
             border: var(--border);
             box-shadow: var(--shadow);
+            will-change: 'transform';
 
             label {
                 font-weight: 600;

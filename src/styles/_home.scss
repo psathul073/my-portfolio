@@ -63,6 +63,7 @@
         backdrop-filter: blur(2px);
         border-radius: 4px;
         background-color: var(--bg-color-2);
+        will-change: 'transform';
 
         .icon {
             font-size: 1.2rem;
