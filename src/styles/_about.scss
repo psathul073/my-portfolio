@@ -30,7 +30,7 @@
             font-weight: 900;
 
             span {
-                color: #4ade80;
+                color: var(--green);
             }
         }
 
@@ -76,7 +76,7 @@
 
                 &:first-child {
                     color: var(--text-color-2);
-                    background-color: #4ade80;
+                    background-color: var(--green);
                 }
 
                 .icon {
@@ -84,7 +84,7 @@
                     width: 32px;
                     padding: 8px;
                     border-radius: 22px;
-                    background-color: #4ade80;
+                    background-color: var(--green);
                     color: var(--text-color-2);
                     // font-size: 1.1em;
                 }

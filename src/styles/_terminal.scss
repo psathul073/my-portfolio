@@ -61,7 +61,7 @@
 }
 
 .h-1 .green {
-  background-color: #4ade80;
+  background-color: green;
 }
 
 .h-1 p {
@@ -83,7 +83,7 @@
     white-space: pre;
     font-family: monospace;
     line-height: 1.2;
-    color: #4ade80;
+    color: var(--green);
     padding: 20px;
     border-radius: 10px;
     overflow-x: hidden;
@@ -102,7 +102,7 @@
 
   h3 {
     position: relative;
-    color: #4ade80;
+    color: var(--green);
     padding: 5px 0;
     width: fit-content;
 
@@ -128,7 +128,7 @@
 .scramble-text {
   padding: 8px 0;
   font-weight: 800;
-  color: #4a65de;
+  color: #3730a3;
   text-wrap: wrap;
 }
 
@@ -165,13 +165,13 @@
       width: 32px;
       padding: 6px;
       border-radius: 22px;
-      background-color: #4ade80;
+      background-color: var(--green);
       color: var(--text-color-2);
     }
 
     &:first-child {
       color: var(--text-color-2);
-      background-color: #4ade80;
+      background-color: var(--green);
 
       .icon {
         background-color: var(--bg-color-2);

@@ -30,7 +30,7 @@
             font-weight: 900;
 
             span {
-                color: #4ade80;
+                color: var(--green);
             }
         }
 
@@ -139,14 +139,14 @@
                                 width: 32px;
                                 padding: 8px;
                                 border-radius: 22px;
-                                background-color: #4ade80;
+                                background-color: var(--green);
                                 color: var(--text-color-2);
                             }
 
                         }
 
                         &:first-child {
-                            background-color: #4ade80;
+                            background-color: var(--green);
 
                             a {
                                 color: var(--text-color-2);
@@ -223,7 +223,7 @@
                     text-decoration: none;
                     padding: 6px 12px;
                     // margin: 5px 0;
-                    background: #4ade80;
+                    background: var(--green);
                     border-radius: 4px;
                     // top: 15px;
                     font-weight: 600;
