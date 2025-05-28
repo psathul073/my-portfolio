@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState, Suspense } from 'react';
 import { FetchRepoData, FetchUserData } from '../API/githubData';
 import { useNavigate } from 'react-router';
-import { motion as Motion } from 'motion/react';
 import Header from './Header';
 import Icons from './Icons';
 import Settings from './Settings';

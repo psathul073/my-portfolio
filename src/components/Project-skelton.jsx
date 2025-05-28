@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import '../styles/_project-skelton.scss';
 import Icons from './Icons';
-import { motion as Motion } from 'motion/react';
 
 
 const ProjectSkelton = memo(function ProjectSkelton() {

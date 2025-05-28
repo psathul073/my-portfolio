@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router';
-import { motion as Motion } from 'motion/react';
 import gsap from 'gsap';
 
 const Footer = () => {

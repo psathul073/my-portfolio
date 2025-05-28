@@ -1,6 +1,5 @@
 import React, { memo, useEffect } from 'react';
 import { Link } from 'react-router';
-import { motion as Motion } from 'motion/react';
 import Icons from './Icons';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

@@ -2,7 +2,6 @@
 import React, { memo, useEffect } from 'react'
 import Icons from './Icons'
 import { Link } from 'react-router';
-import { motion as Motion } from 'motion/react';
 import gsap from 'gsap';
 
 const Technologies = memo ( function Technologies() {

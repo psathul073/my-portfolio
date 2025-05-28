@@ -1,7 +1,6 @@
 import React, { memo, Suspense } from 'react';
 import Icons from './Icons';
 // import ScrambledTypingArray from './Scramble-text';
-import { motion as Motion } from "motion/react";
 import { Link } from 'react-router';
 const ScrambledTypingArray = React.lazy(() => import('./Scramble-text'));
 

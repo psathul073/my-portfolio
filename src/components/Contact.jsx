@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import Icons from './Icons';
 import { SendMail } from '../API/githubData';
-import { motion as Motion } from 'motion/react';
 import gsap from 'gsap';
 import { useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

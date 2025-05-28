@@ -1,4 +1,3 @@
-import { motion as Motion } from "motion/react";
 import { Link } from 'react-router';
 import Icons from "./Icons";
 import { useEffect } from "react";
