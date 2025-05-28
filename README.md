@@ -21,7 +21,7 @@ This portfolio showcases my work as a web developer, featuring my projects, skil
 - 🧩 Project cards with live preview & source links  
 - 📊 GitHub stats: commits, stars, forks, followers  
 - ✨ Smooth animations and transitions  
-- 🛰️ 3D models with React Three Fiber *(if used)*  
+- 🛰️ 3D models with React Three Fiber
 - 🛠 Skills section with tools & tech  
 - 📫 Contact form  
 
@@ -30,9 +30,9 @@ This portfolio showcases my work as a web developer, featuring my projects, skil
 ## 🛠 Tech Stack
 
 - **Frontend:** React.js, SASS 
-- **3D & Animation:** Three.js / React Three Fiber *(optional), GSAP*  
+- **3D & Animation:** Three.js / React Three Fiber, GSAP 
 - **Hosting:** Netlify  
-- **APIs:** GitHub API *(for stats)*, EmailJS / FormSubmit *(for contact)*  
+- **APIs:** GitHub API, EmailJS / FormSubmit 
 
 ---
 
@@ -71,7 +71,7 @@ If you're showing live GitHub statistics:
 
 Have a project idea or want to collaborate?
 
-- 📧 **Email:** your-email@example.com *(update this)*  
+- 📧 **Email:** psathul073@gmail.com   
 - 🌐 **Website:** [https://athul01.netlify.app](https://athul01.netlify.app)  
 - 🐙 **GitHub:** [https://github.com/psathul073](https://github.com/psathul073)  
 - 💼 **LinkedIn:** [https://linkedin.com/in/athul-fullstack](https://linkedin.com/in/athul-fullstack)  
