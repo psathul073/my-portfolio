@@ -1,6 +1,6 @@
 import "./App.scss";
 import Routes from "./routes/Routes";
-import FullScreenLoader from "./components/FullScreen-Loader";
+import FullscreenLoader from "./components/Fullscreen-loader";
 import { useLoader } from "./context/LoaderContext";
 
 
@@ -9,7 +9,7 @@ const { isLoading } = useLoader();
   return (
     <>
     {
-      isLoading ? <FullScreenLoader /> : <Routes />
+      isLoading ? <FullscreenLoader /> : <Routes />
     }
     </>
     
