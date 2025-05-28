@@ -6,22 +6,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 *{
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-body {
-  height: 100dvh;
-  width: 100dvw;
-  // background-color: var(--bg-color);
-  font-family: "Space Mono", monospace;
+* {
+  box-sizing: border-box;
+}
+html, body {
   overflow-x: hidden;
-  overflow-y: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Space Mono", monospace;
   scroll-behavior: smooth;
+  overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
-  &::-webkit-scrollbar{
+
+  // background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  &::-webkit-scrollbar {
     width: 0;
   }
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 body.dark {
@@ -29,11 +48,11 @@ body.dark {
   color: var(--text-color);
 }
 
-main{
-  height: 100%;
-  width: 100%;
+main {
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
+  // background-color: aqua;
 }

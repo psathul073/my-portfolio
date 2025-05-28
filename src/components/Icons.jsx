@@ -4,9 +4,7 @@ const Icons = ({ name, className }) => {
   // Icons Obj
   const icons = {
     about: (
-      <Motion.svg
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
+      <svg
         className={className}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2048 2048"
@@ -17,12 +15,10 @@ const Icons = ({ name, className }) => {
           fill="currentColor"
           d="M1330 1203q136 47 245 131t186 196t118 243t41 275h-128q0-164-58-304t-162-244t-243-161t-305-59q-107 0-206 27t-184 76t-155 119t-119 155t-77 185t-27 206H128q0-144 42-275t119-242t186-194t245-133q-78-42-140-102T475 969t-67-157t-24-172q0-133 50-249t137-204T774 50t250-50q133 0 249 50t204 137t137 203t50 250q0 88-23 171t-67 156t-105 133t-139 103M512 640q0 106 40 199t110 162t163 110t199 41t199-40t162-110t110-163t41-199t-40-199t-110-162t-163-110t-199-41t-199 40t-162 110t-110 163t-41 199"
         />
-      </Motion.svg>
+      </svg>
     ),
     project: (
-      <Motion.svg
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
+      <svg
         className={className}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
@@ -33,12 +29,10 @@ const Icons = ({ name, className }) => {
           fill="currentColor"
           d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5L8 5.961L14.154 3.5zm3.25 1.7l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"
         />
-      </Motion.svg>
+      </svg>
     ),
     contact: (
-      <Motion.svg
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
+      <svg
         className={className}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 14 14"
@@ -52,12 +46,10 @@ const Icons = ({ name, className }) => {
           strokeLinejoin="round"
           d="m5.812 11l2.178 2.168a1.1 1.1 0 0 0 1.05.3a1.12 1.12 0 0 0 .809-.74l3.576-10.72A1.118 1.118 0 0 0 11.987.57L1.267 4.147a1.12 1.12 0 0 0-.74.859a1.1 1.1 0 0 0 .3 1l2.737 2.737l-.09 3.466zM13.106.79L3.564 8.742"
         />
-      </Motion.svg>
+      </svg>
     ),
     setting: (
-      <Motion.svg
-        whileHover={{ rotate: 180, transition: { duration: 0.5 } }}
-        whileTap={{ rotate: 180, transition: { duration: 0.5 } }}
+      <svg
         className={className}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 14 14"
@@ -71,7 +63,7 @@ const Icons = ({ name, className }) => {
           strokeLinejoin="round"
           d="m5.23 2.25l.43-1.11A1 1 0 0 1 6.59.5h.82a1 1 0 0 1 .93.64l.43 1.11l1.46.84l1.18-.18a1 1 0 0 1 1 .49l.4.7a1 1 0 0 1-.08 1.13l-.73.93v1.68l.75.93a1 1 0 0 1 .08 1.13l-.4.7a1 1 0 0 1-1 .49l-1.18-.18l-1.46.84l-.43 1.11a1 1 0 0 1-.93.64h-.84a1 1 0 0 1-.93-.64l-.43-1.11l-1.46-.84l-1.18.18a1 1 0 0 1-1-.49l-.4-.7a1 1 0 0 1 .08-1.13L2 7.84V6.16l-.75-.93a1 1 0 0 1-.08-1.13l.4-.7a1 1 0 0 1 1-.49l1.18.18ZM5 7a2 2 0 1 0 2-2a2 2 0 0 0-2 2Z"
         />
-      </Motion.svg>
+      </svg>
     ),
     send: (
       <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='1em' height='1em'><g fill="none"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="m21.433 4.861l-6 15.5a1 1 0 0 1-1.624.362l-3.382-3.235l-2.074 2.073a.5.5 0 0 1-.853-.354v-4.519L2.309 9.723a1 1 0 0 1 .442-1.691l17.5-4.5a1 1 0 0 1 1.181 1.329ZM19 6.001L8.032 13.152l1.735 1.66L19 6Z"/></g></svg>
@@ -139,7 +131,7 @@ const Icons = ({ name, className }) => {
       </svg>
     ),
     download: (
-      <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='1em' height='1em'><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path strokeDasharray="2 4" strokeDashoffset="6" d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9"><animate attributeName="stroke-dashoffset" dur="0.6s" repeatCount="indefinite" values="6;0" /></path><path strokeDasharray="32" strokeDashoffset="32" d="M12 21c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.1s" dur="0.4s" values="32;0" /></path><path strokeDasharray="10" strokeDashoffset="10" d="M12 8v7.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.2s" values="10;0" /></path><path strokeDasharray="6" strokeDashoffset="6" d="M12 15.5l3.5 -3.5M12 15.5l-3.5 -3.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.7s" dur="0.2s" values="6;0" /></path></g></svg>
+      <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='1em' height='1em'><path fill="currentColor" d="M18.32 4.26A9.95 9.95 0 0 0 13 2.05v2.02c1.46.18 2.79.76 3.9 1.62zM19.93 11h2.02c-.2-2.01-1-3.84-2.21-5.32L18.31 7.1a7.94 7.94 0 0 1 1.62 3.9m-1.62 5.9l1.43 1.43a10 10 0 0 0 2.21-5.32h-2.02a7.95 7.95 0 0 1-1.62 3.89M13 19.93v2.02c2.01-.2 3.84-1 5.32-2.21l-1.43-1.43c-1.1.86-2.43 1.44-3.89 1.62m2.59-9.34L13 13.17V7h-2v6.17l-2.59-2.59L7 12l5 5l5-5zM11 19.93v2.02c-5.05-.5-9-4.76-9-9.95s3.95-9.45 9-9.95v2.02C7.05 4.56 4 7.92 4 12s3.05 7.44 7 7.93"/></svg>
     ),
     done: (
       <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width='1em' height='1em'><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" color="currentColor"><path d="M11.5 3.004q-.845.012-1.67.067c-4.184.278-7.516 3.658-7.79 7.9a20 20 0 0 0 0 2.52c.1 1.545.783 2.976 1.588 4.184c.467.845.159 1.901-.328 2.823c-.35.665-.526.997-.385 1.237c.14.24.455.248 1.084.263c1.245.03 2.084-.322 2.75-.813c.377-.279.566-.418.696-.434s.387.09.899.3c.46.19.995.307 1.485.34c1.425.094 2.914.095 4.342 0c4.183-.278 7.515-3.658 7.789-7.9c.053-.83.053-1.69 0-2.52a8.6 8.6 0 0 0-.532-2.47"/><path d="M14 6s1 0 2 2c0 0 3.177-5 6-6M8.5 15h7m-7-5H12"/></g></svg>

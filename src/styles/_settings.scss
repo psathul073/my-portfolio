@@ -1,17 +1,22 @@
+@use './-toggle-switch.scss';
 
 .settings-overlay{
     position: fixed;
     top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: baseline;
     padding: 0 10px;
-    z-index: 999;
+    z-index: 999;;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     background-color: var(--bg-color-2);
+    &.active{
+        display: flex;
+    }
     .settings{
         position: relative;
         max-width: 460px;
@@ -21,7 +26,7 @@
         border-radius: 8px;
         background-color: var(--bg-color);
         color: var(--text-color);
-        will-change: 'transform';
+        opacity: 0;
         h2{
             display: flex;
             justify-content: space-between;
@@ -47,7 +52,6 @@
             padding: 15px 5px;
         }
         .settings-options{
-            height: 180px;
             padding:  5px;
             background-color: var(--secondary-color);
             .theme{
@@ -56,6 +60,28 @@
                 justify-content: space-between;
                 border-bottom: var(--border);
                 padding: 6px 0;
+            }
+            .drone-settings{
+                // background-color: aqua;
+                h3{
+                    font-size: 1.1em;
+                    padding: 8px 0;
+                }
+                p{
+                    font-size: 0.9em;
+                    padding: 0%;
+                }
+                .control-switches{
+                    p{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 0;
+                        margin: 10px 0;
+                        font-size: 1em;
+                        font-weight: 500;
+                    }
+                }
             }
         }
     }

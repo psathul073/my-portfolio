@@ -7,7 +7,7 @@ import { motion as Motion } from 'motion/react';
 const ProjectSkelton = memo(function ProjectSkelton() {
   return (
 
-    <Motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='project-sk'>
+    <div className='project-sk'>
       {/* <h2>Recent Projects<span>.</span></h2>
       <p>Explore some of my latest projects below, and for more, visit my GitHub profile.</p> */}
       <div className='title'></div>
@@ -23,7 +23,7 @@ const ProjectSkelton = memo(function ProjectSkelton() {
         <div></div>
         <div></div>
       </div>
-    </Motion.div>
+    </div>
 
   )
 })

@@ -1,20 +1,16 @@
-import { memo } from 'react';
+import React, { memo, Suspense } from 'react';
 import Icons from './Icons';
-import ScrambledTypingArray from './Scramble-text';
+// import ScrambledTypingArray from './Scramble-text';
 import { motion as Motion } from "motion/react";
 import { Link } from 'react-router';
+const ScrambledTypingArray = React.lazy(() => import('./Scramble-text'));
 
-const Terminal = memo( function Terminal() {
+const Terminal = memo(function Terminal() {
   return (
 
     <div className="terminal-container">
 
-      <Motion.div initial={{ y: 10 }}
-        animate={{ y: 0 }}
-        transition={{
-          duration: 0.5,
-          ease: 'easeOut',
-        }} id="terminal" >
+      <div  id="terminal" >
 
         <div className="main-head">
           <div className="h-1">
@@ -88,24 +84,26 @@ const Terminal = memo( function Terminal() {
 
             <p>$:~ I am a passionate developer with a love for creating innovative solutions.</p>
 
-            <ScrambledTypingArray
-              texts={[
-                "$Iam a Front-end developer",
-                "$Iam a Back-end developer",
-                "$Iam a Web3 developer",
-                "$Iam a Full-stack developer ",
-              ]}
-            />
+
+            <Suspense fallback={<p>Loading...</p>}>
+              <ScrambledTypingArray
+                texts={[
+                  "$Iam a Front-end developer",
+                  "$Iam a Back-end developer",
+                  "$Iam a Web3 developer",
+                  "$Iam a Full-stack developer ",
+                ]}
+              />
+            </Suspense>
+
           </div>
         </div>
-      </Motion.div>
+      </div>
 
-      <Motion.div initial={{ y: -10 }} animate={{ y: 0 }} transition={{
-        duration: 0.5, ease: 'easeOut'
-      }} className='terminal-btns'>
-        <Link to={'https://drive.google.com/file/d/1Ovw45E0vEuoPBfBNYwzbKgi--aYwshEw/view?usp=sharing'}>Resume <Icons name={"download"} className={'icon'} /> </Link>
+      <div className='terminal-btns'>
+        <Link to={'https://drive.google.com/file/d/1Ovw45E0vEuoPBfBNYwzbKgi--aYwshEw/view?usp=sharing'}>Resume <Icons name={'download'} className={'icon'} /> </Link>
         <Link to={'/contact'}>Contact me <Icons name={"arrow"} className={'icon'} /></Link>
-      </Motion.div>
+      </div>
 
     </div>
 

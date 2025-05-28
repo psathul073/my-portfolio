@@ -1,8 +1,9 @@
 
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import Icons from './Icons'
 import { Link } from 'react-router';
 import { motion as Motion } from 'motion/react';
+import gsap from 'gsap';
 
 const Technologies = memo ( function Technologies() {
 
@@ -153,13 +154,27 @@ const Technologies = memo ( function Technologies() {
     },
   ]
 
+  useEffect(() => {
+    gsap.from('.tools-container',{
+      y: 60,
+      opacity:0,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.tools-container',
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      }
+    })
+  },[]);
+
   return (
       <section id='technologies'>
-        <Motion.div  initial={{ opacity: 0}} whileInView={{ opacity: 1 }}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='tech-content'>
+        <div className='tech-content'>
           <h2>Technologies I use<span>.</span></h2>
           <p>I have experience working with a wide range of technologies over the years. Here are some of the technologies I am familiar with:</p>
 
-          <Motion.div  initial={{ y: 10}} whileInView={{ y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='tools-container'>
+          <div className='tools-container'>
             {
               technologies.map((tec) => (
                 <Link className='tech-tools' key={tec.id} to={tec.link}>
@@ -168,10 +183,10 @@ const Technologies = memo ( function Technologies() {
                 </Link>
               ))
             }
-          </Motion.div>
+          </div>
           <p>🙂 Not at all!</p>
 
-        </Motion.div>
+        </div>
       </section>
   )
 })

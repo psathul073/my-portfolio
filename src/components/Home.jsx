@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState, Suspense } from 'react';
 import { FetchRepoData, FetchUserData } from '../API/githubData';
 import { useNavigate } from 'react-router';
 import { motion as Motion } from 'motion/react';
 import Header from './Header';
-import Terminal from './Terminal';
 import Icons from './Icons';
 import Settings from './Settings';
 import ProjectSkelton from './Project-skelton';
@@ -11,76 +10,83 @@ import Technologies from './Technologies';
 import Contact from './Contact';
 import Footer from './Footer';
 import About from './About';
-import RecentProject from './Recent-project';
-const RoboDrone = React.lazy(() => import('./Robo-drone'));
-const Squares = React.lazy(() => import('./Squares'));
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// Optimize imports 
+const RoboDrone = React.lazy(() => import('./Drone-viewer'));
+const Terminal = React.lazy(() => import('./Terminal'));
+const RecentProject = React.lazy( () => import('./Recent-project'));
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
 
+  const aboutRef = useRef(null);
+  const navigate = useNavigate();
   const [isModelOpen, setIsModalOpen] = useState(false);
   const [githubStatus, setGithubStatus] = useState({});
   const [githubRepo, setGithubRepo] = useState([]);
   const [skelton, setSkelton] = useState(false);
 
-  const aboutRef = useRef(null);
-  const navigate = useNavigate();
 
   const handleAboutClick = useCallback(() => {
     navigate('#about', { replace: false });
     aboutRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [navigate]);
 
-
-  // Github user data Fetch
+  // GitHub data fetch
   useEffect(() => {
     const gStatus = async () => {
-
-      const localData = localStorage.getItem('ghData');
-
-      if (localData) {
-        const { repo, status, fetchedAt } = JSON.parse(localData);
-
-        // Only refetch if older than 24 hours
-        const isExpired = Date.now() - fetchedAt > 24 * 60 * 60 * 1000;
-        if (!isExpired) {
-          setGithubStatus(status);
-          setGithubRepo(repo);
-          return;
+      try {
+        const localData = localStorage.getItem('ghData');
+        if (localData) {
+          const { repo, status, fetchedAt } = JSON.parse(localData);
+          const isExpired = Date.now() - fetchedAt > 24 * 60 * 60 * 1000;
+          if (!isExpired) {
+            setGithubStatus(status);
+            setGithubRepo(repo);
+            return;
+          }
         }
+
+        setSkelton(true);
+        const [statusResult, repoResult] = await Promise.all([
+          FetchUserData(),
+          FetchRepoData()
+        ]);
+
+        const relevantProjects = repoResult.slice(11, 13);
+        setGithubStatus(statusResult);
+        setGithubRepo(relevantProjects);
+
+        localStorage.setItem('ghData', JSON.stringify({
+          repo: relevantProjects,
+          status: statusResult,
+          fetchedAt: Date.now()
+        }));
+      } catch (error) {
+        console.error('Failed to fetch GitHub data:', error);
+      } finally {
+        setSkelton(false);
       }
-      setSkelton(true);
-      const statusResult = await FetchUserData();
-      const repoResult = await FetchRepoData();
-      const project1 = repoResult[11];
-      const project2 = repoResult[12];
-
-      setGithubStatus(statusResult);
-      setGithubRepo((prev) => ([...prev, project1, project2]));
-      setSkelton(false);
-      // Set data in local storage;
-      localStorage.setItem('ghData', JSON.stringify({
-        repo: [project1, project2],
-        status: statusResult,
-        fetchedAt: Date.now()
-      }));
-
     };
 
     gStatus();
-
   }, []);
+
 
   return (
     <>
+
+      <Header setIsModalOpen={setIsModalOpen} aboutRef={aboutRef} aboutClick={handleAboutClick} />
+
       <main>
-        <Squares
-          speed={0.3}
+        {/* <Squares
+          speed={0.5}
           squareSize={100}
           direction='diagonal'
           borderColor='#71717a'
           lineWidth='0.05'
-        />
-        <Header setIsModalOpen={setIsModalOpen} aboutRef={aboutRef} aboutClick={handleAboutClick} />
+        /> */}
 
         <Settings isModelOpen={isModelOpen} setIsModalOpen={setIsModalOpen} />
 
@@ -89,14 +95,15 @@ const Home = () => {
           <div className='home_content'>
             <Terminal />
             <RoboDrone />
+
           </div>
 
-          <Motion.div initial={{ y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='github-data'>
+          <div className='github-data'>
             <p className='text'><Icons name={"github"} className={'icon'} /> Followers: {githubStatus?.followers ?? 369}</p>
             <p className='text'><Icons name={"star"} className={'icon'} /> Stars: {githubStatus?.stars ?? 369}</p>
             <p className='text'><Icons name={"fork"} className={'icon'} /> Forks: {githubStatus?.forks ?? 369}</p>
             <p className='text'><Icons name={"commit"} className={'icon'} /> Commits: {githubStatus?.commits ?? 369}</p>
-          </Motion.div>
+          </div>
 
         </section>
 
@@ -104,14 +111,14 @@ const Home = () => {
 
         <section id='recent-project'>
 
-          <Motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} className='project-container'>
+          <div className='project-container'>
 
             <h2>Recent Projects<span>.</span></h2>
             <p>Explore some of my latest projects below, and for more, visit my GitHub profile.</p>
 
             {skelton ? <><ProjectSkelton /> <ProjectSkelton /></> : <RecentProject ghRepo={githubRepo} />}
 
-          </Motion.div>
+          </div>
 
         </section>
 
@@ -119,9 +126,8 @@ const Home = () => {
 
         <Contact />
 
-        <Footer />
-
       </main>
+      <Footer />
     </>
   )
 };

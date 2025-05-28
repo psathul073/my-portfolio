@@ -4,6 +4,11 @@ import { Link } from 'react-router';
 import Icons from './Icons';
 import { SendMail } from '../API/githubData';
 import { motion as Motion } from 'motion/react';
+import gsap from 'gsap';
+import { useEffect } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Contact = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -24,22 +29,36 @@ const Contact = () => {
         }
 
     };
-    
-    const handleChange = useCallback ( (e) => {
+
+    const handleChange = useCallback((e) => {
         const message = e.target.value;
         setCharLength(message.length);
-    },[]);
+    }, []);
+
+    useEffect(() => {
+        gsap.from(".contact-content", {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.contact-content',
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+            }
+        });
+    }, []);
 
     return (
 
         <main>
             <section id='contact'>
 
-                <Motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut'} } className='contact-content'>
+                <div className='contact-content'>
                     <h2>Contact me<span>.</span></h2>
                     <p>I’m always looking to grow, learn, and connect with others in tech. Got feedback, a tip, or an opportunity? I’d love to hear from you.</p>
 
-                    <Motion.form initial={{ y: 10 }} whileInView={{ y: 0}}  viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut' }} onSubmit={handleSubmit(onSubmit)} className="contact-form">
+                    <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
 
                         <div className='name-email'>
 
@@ -62,17 +81,17 @@ const Contact = () => {
                         </div>
 
                         <button type="submit" className="sub-btn" disabled={isDisable}><Icons name={isDone ? 'done' : isDisable ? 'loading' : 'send'} className={'icon'} />Send</button>
-                    </Motion.form>
+                    </form>
 
                     <p>Or get in touch with me:</p>
-                    <Motion.ul initial={{ y: 10 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, ease: 'easeOut'}} style={{ willChange:'transform'}}>
+                    <ul style={{ willChange: 'transform' }}>
                         <li><Link to={'mailto:psathul073@gmail.com'}><Icons name={'gmail'} />Email <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
                         <li><Link to={'https://www.instagram.com/d9.coder/'}><Icons name={'ig_c'} />Instagram <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
                         <li><Link to={'https://www.facebook.com/people/D9-Coder/61572788624684/'}><Icons name={'fb'} />Facebook <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
                         <li><Link to={'https://www.linkedin.com/in/athul-fullstack'}><Icons name={'linkedin_c'} />Linkedin <Icons name={'arrowRight'} className={'icon'} /> </Link></li>
-                    </Motion.ul>
+                    </ul>
 
-                </Motion.div>
+                </div>
 
             </section>
         </main>

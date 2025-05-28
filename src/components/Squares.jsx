@@ -17,7 +17,7 @@ const Squares = ({
   const hoveredSquare = useRef(null);
 
   const customStyle = {
-    position:'absolute', width:'100%', height:'100%', border: 'none',
+    position:'absolute', top: 0, left: 0, width:'100%', height:'100%', border: 'none', pointerEvent: 'none', zIndex: -1,
   }
 
   useEffect(() => {
@@ -61,19 +61,7 @@ const Squares = ({
         }
       }
 
-      const gradient = ctx.createRadialGradient(
-        canvas.width / 2,
-        canvas.height / 2,
-        0,
-        canvas.width / 2,
-        canvas.height / 2,
-        Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
-      );
-      gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
-      // gradient.addColorStop(1, '#060606'); // uncomment for gradient
 
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
     const updateAnimation = () => {
@@ -102,33 +90,6 @@ const Squares = ({
       drawGrid();
       requestRef.current = requestAnimationFrame(updateAnimation);
     };
-
-    // const handleMouseMove = (event) => {
-    //   const rect = canvas.getBoundingClientRect();
-    //   const mouseX = event.clientX - rect.left;
-    //   const mouseY = event.clientY - rect.top;
-
-    //   const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
-    //   const startY = Math.floor(gridOffset.current.y / squareSize) * squareSize;
-
-    //   const hoveredSquareX = Math.floor((mouseX + gridOffset.current.x - startX) / squareSize);
-    //   const hoveredSquareY = Math.floor((mouseY + gridOffset.current.y - startY) / squareSize);
-
-    //   if (
-    //     !hoveredSquare.current ||
-    //     hoveredSquare.current.x !== hoveredSquareX ||
-    //     hoveredSquare.current.y !== hoveredSquareY
-    //   ) {
-    //     hoveredSquare.current = { x: hoveredSquareX, y: hoveredSquareY };
-    //   }
-    // };
-
-    // const handleMouseLeave = () => {
-    //   hoveredSquare.current = null;
-    // };
-
-    // canvas.addEventListener('mousemove', handleMouseMove);
-    // canvas.addEventListener('mouseleave', handleMouseLeave);
 
     requestRef.current = requestAnimationFrame(updateAnimation);
 

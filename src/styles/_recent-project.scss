@@ -4,7 +4,6 @@
     flex-direction: column;
     align-items: center;
     // justify-content: space-evenly;
-    overflow: hidden;
     padding: 20px 15px;
     margin-top: 10px;
     gap: 60px;
@@ -21,7 +20,6 @@
         color: var(--text-color);
         width: 100%;
         max-width: 1224px;
-        will-change: 'opacity';
         // background-color: rgb(173, 143, 103);
 
         h2 {
@@ -47,7 +45,8 @@
             // background-color: coral;
             width: fit-content;
             border-bottom: var(--border);
-            will-change: 'transform';
+            will-change: transform;
+            transform: translateZ(0);
 
             h3 {
                 font-size: 1.2em;
@@ -85,6 +84,8 @@
                     box-shadow: var(--shadow);
                     width: 100%;
                     border: var(--border);
+                    will-change: transform;
+                    transform: translateZ(0);
 
                 }
 
@@ -118,7 +119,7 @@
                         align-items: center;
                         justify-content: center;
                         padding: 4px;
-                        padding-left: 12px;
+                        padding-left: 14px;
                         border: var(--border);
                         box-shadow: var(--shadow);
                         border-radius: 22px;
@@ -154,7 +155,8 @@
 
                             .icon {
                                 background-color: var(--bg-color-2);
-                                box-shadow: var(--shadow-inset);
+                                box-shadow: var(--shadow);
+                                border: var(--border);
                                 color: var(--text-color-2);
                             }
                         }

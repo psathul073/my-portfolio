@@ -1,9 +1,8 @@
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
-const characters =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+const characters = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{};:,.<>?".split("");
 
-const ScrambledTypingArray = memo ( function ScrambledTypingArray({ texts }) {
+const ScrambledTypingArray = memo(function ScrambledTypingArray({ texts }) {
   const [displayText, setDisplayText] = useState("");
   const [phase, setPhase] = useState("typing"); // typing | hold | deleting
   const [charIndex, setCharIndex] = useState(0);
@@ -11,78 +10,77 @@ const ScrambledTypingArray = memo ( function ScrambledTypingArray({ texts }) {
   const [showCursor, setShowCursor] = useState(true);
 
   const currentText = texts[textIndex];
+  const isLowSpec = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+
 
   // Cursor Blink
   useEffect(() => {
     const blink = setInterval(() => {
       setShowCursor((prev) => !prev);
-    }, 500);
+    }, 600);
     return () => clearInterval(blink);
   }, []);
 
-  // Typing with scrambling
+  // Typing with optional scrambling
   useEffect(() => {
     if (phase !== "typing") return;
 
-    const scrambleInterval = setInterval(() => {
-      const revealed = currentText.slice(0, charIndex);
-      // console.log(revealed, "revealed");
+    const revealed = currentText.slice(0, charIndex);
+    const scrambled = isLowSpec
+      ? currentText.slice(charIndex)
+      : currentText
+          .slice(charIndex)
+          .split("")
+          .map(() => characters[Math.floor(Math.random() * characters.length)])
+          .join("");
 
-      const scrambled = currentText
-        .slice(charIndex)
-        .split("")
-        .map(() => characters[Math.floor(Math.random() * characters.length)])
-        .join("");
-      // console.log(scrambled, "scrambled");
-      setDisplayText(revealed + scrambled);
-    }, 50);
+    setDisplayText(revealed + scrambled);
+    setShowCursor(false);
 
-    const stepTimeout = setTimeout(() => {
-      setCharIndex((prev) => {
-        const next = prev + 1;
-        if (next > currentText.length) {
-          clearInterval(scrambleInterval);
-          setTimeout(() => setPhase("hold"), 1000);
-        }
-        return next;
-      });
-    }, 100);
+    const timeout = setTimeout(() => {
+      const nextIndex = charIndex + 1;
+      if (nextIndex > currentText.length) {
+        setPhase("hold");
+      } else {
+        setCharIndex(nextIndex);
+      }
+    }, isLowSpec ? 150 : 100); 
 
-    return () => {
-      clearTimeout(stepTimeout);
-      clearInterval(scrambleInterval);
-    };
-  }, [charIndex, phase, currentText]);
+    return () => clearTimeout(timeout);
+  }, [charIndex, phase, currentText, isLowSpec]);
 
-  // Hold phase before deleting
+  // Hold before delete
   useEffect(() => {
     if (phase !== "hold") return;
+
     setDisplayText(currentText);
     const timeout = setTimeout(() => setPhase("deleting"), 1000);
     return () => clearTimeout(timeout);
   }, [phase, currentText]);
 
-  // Deleting phase
+  // Deleting text
   useEffect(() => {
     if (phase !== "deleting") return;
 
     if (displayText.length > 0) {
       const timeout = setTimeout(() => {
         setDisplayText((prev) => prev.slice(0, -1));
-      }, 50);
+      }, isLowSpec ? 150 : 100);
       return () => clearTimeout(timeout);
     } else {
       setCharIndex(0);
-      setTextIndex((prev) => (prev + 1) % texts.length); // Go to next word
+      setTextIndex((prev) => (prev + 1) % texts.length);
       setPhase("typing");
     }
-  }, [phase, displayText, texts.length]);
+  }, [phase, displayText, texts.length, isLowSpec]);
 
   return (
-    <p className="scramble-text">
-      {displayText}
-      {showCursor ? "|" : ""}
-    </p>
+    <div className="scramble-container">
+      <p className="scramble-text">
+        {displayText}
+        {showCursor ? "|" : ""}
+      </p>
+    </div>
   );
 });
 
