@@ -10,7 +10,7 @@ This portfolio showcases my work as a web developer, featuring my projects, skil
 ## 📸 Preview
 
 > *(Include a screenshot here for better visual context)*  
-> `![Portfolio Preview](/image/preview-image.webp)`
+> `![Portfolio Preview](./public/image/preview-image.webp)`
 
 ---
 
