@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { Environment, Html, OrbitControls, PositionalAudio, useProgress, PerformanceMonitor } from "@react-three/drei";
+import {  Html, PositionalAudio, useProgress, PerformanceMonitor } from "@react-three/drei";
 import React, { Suspense, useRef, memo, useState } from "react";
 import Drone from './Robo-drone';
 import { useLoader } from "../context/LoaderContext";

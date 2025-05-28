@@ -9,6 +9,8 @@ const API = axios.create({
 export const FetchRepoData = async () => {
     try {
         const response = await API.get('/api/user/repo');
+        console.log(response.data);
+        
         return response?.data;
         
     } catch (error) {
