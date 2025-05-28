@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import Settings from '../components/Settings'
-import Squares from '../components/Squares'
 
 const ThreeDProject = () => {
   const [isModelOpen, setIsModalOpen] = useState(false);

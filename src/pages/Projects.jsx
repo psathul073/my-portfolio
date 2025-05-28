@@ -1,12 +1,8 @@
-import React, { memo, Suspense, useEffect, useRef, useState } from 'react'
-import Squares from '../components/Squares'
+import React, { memo, Suspense, useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Settings from '../components/Settings'
 import { FetchRepoData } from '../API/githubData';
-import { Link } from 'react-router';
-import Icons from '../components/Icons';
 import ProjectSkelton from '../components/Project-skelton';
-import { motion as Motion } from 'motion/react';
 const RecentProject = React.lazy( () => import('../components/Recent-project'));
 
 const Projects = memo(function Projects() {
