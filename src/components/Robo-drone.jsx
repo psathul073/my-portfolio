@@ -21,13 +21,13 @@ const Drone = memo(function Drone({ lowSpec, audioRef }) {
       audioRef.current.stop(); // Reset
     }
     audioRef.current.play();
-  },[audioRef, controller?.sound, lowSpec]);
+  }, [audioRef, controller?.sound, lowSpec]);
 
   const handleHoverOut = useCallback(() => {
     if (audioRef.current?.isPlaying) {
       audioRef.current.stop(); // Reset);
     }
-  },[audioRef]);
+  }, [audioRef]);
 
   useEffect(() => {
     if (audioRef.current.isPlaying) {
@@ -37,16 +37,19 @@ const Drone = memo(function Drone({ lowSpec, audioRef }) {
 
   // Mouse move event to update mouse position
   // and raycaster
- 
- 
+
+
   useEffect(() => {
-    let timeout;
+    let animationFrameId;
     const handleMouseMove = (e) => {
-      clearTimeout(timeout);
-      timeout = setTimeout( () => {
+
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      // Throttle the mouse move event to avoid performance issues
+      // Using requestAnimationFrame to limit the frequency of updates
+      animationFrameId = requestAnimationFrame(() => {
         mouse.x = -(e.clientX / window.innerWidth) * 2 + 1;
         mouse.y = (e.clientY / window.innerHeight) * 2 - 1;
-      }, 16); // 60 FPS
+      });
 
     };
     window.addEventListener("mousemove", handleMouseMove);
@@ -66,41 +69,41 @@ const Drone = memo(function Drone({ lowSpec, audioRef }) {
   }, [lowSpec]);
 
 
-// useEffect(() => {
-//   if (controller?.sound && !lowSpec) {
-//     if (!audioRef.current) return;
+  // useEffect(() => {
+  //   if (controller?.sound && !lowSpec) {
+  //     if (!audioRef.current) return;
 
-//     // Create and play the audio
-//     const audio = new Audio("sounds/robot_flying.mp3");
-//     audio.loop = true;
-//     audio.play();
-//     audioRef.current = audio;
+  //     // Create and play the audio
+  //     const audio = new Audio("sounds/robot_flying.mp3");
+  //     audio.loop = true;
+  //     audio.play();
+  //     audioRef.current = audio;
 
-//     const handleHover = () => audio.play();
-//     // const handleHoverOut = () => {
-//     //   audio.pause();
-//     //   audio.currentTime = 0;
-//     // };
+  //     const handleHover = () => audio.play();
+  //     // const handleHoverOut = () => {
+  //     //   audio.pause();
+  //     //   audio.currentTime = 0;
+  //     // };
 
-//     droneRef.current.addEventListener("click", handleHover);
-//     droneRef.current.addEventListener("hoverout", handleHoverOut);
+  //     droneRef.current.addEventListener("click", handleHover);
+  //     droneRef.current.addEventListener("hoverout", handleHoverOut);
 
-//     return () => {
-//       audio.pause();
-//       audio.currentTime = 0;
-//       droneRef.current.removeEventListener("hover", handleHover);
-//       droneRef.current.removeEventListener("hoverout", handleHoverOut);
-//     };
-//   } else {
-//     if (audioRef.current) {
-//       audioRef.current.pause();
-//       audioRef.current.currentTime = 0;
-//     }
-//   }
-// }, [controller?.sound, lowSpec]);
+  //     return () => {
+  //       audio.pause();
+  //       audio.currentTime = 0;
+  //       droneRef.current.removeEventListener("hover", handleHover);
+  //       droneRef.current.removeEventListener("hoverout", handleHoverOut);
+  //     };
+  //   } else {
+  //     if (audioRef.current) {
+  //       audioRef.current.pause();
+  //       audioRef.current.currentTime = 0;
+  //     }
+  //   }
+  // }, [controller?.sound, lowSpec]);
 
 
-// Animation and raycasting logic
+  // Animation and raycasting logic
   useFrame(({ clock }) => {
 
     if (controller?.mouseMode) {
@@ -116,7 +119,7 @@ const Drone = memo(function Drone({ lowSpec, audioRef }) {
 
   });
 
-  return <primitive ref={droneRef} object={scene} scale={controller?.mouseMode ? [0.7, 0.7, -0.7] : [0.7, 0.7, 0.7]} onPointerOver={handleHover} onPointerOut={handleHoverOut}  />;
+  return <primitive ref={droneRef} object={scene} scale={controller?.mouseMode ? [0.7, 0.7, -0.7] : [0.7, 0.7, 0.7]} onPointerOver={handleHover} onPointerOut={handleHoverOut} />;
 });
 
 export default Drone
