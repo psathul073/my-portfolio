@@ -53,7 +53,11 @@ const Home = () => {
           FetchRepoData()
         ]);
 
-        const relevantProjects = repoResult.slice(11, 13);
+        // console.log(repoResult, '==Repo');
+        
+        const relevantProjects = [14, 3].map( index => repoResult[index]).filter(Boolean);
+        console.log(relevantProjects);
+        
         setGithubStatus(statusResult);
         setGithubRepo(relevantProjects);
 

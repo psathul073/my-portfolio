@@ -29,9 +29,11 @@ const Projects = memo(function Projects() {
 
         setSkelton(true);
         const [repoResult] = await Promise.all( [FetchRepoData()]);
+        console.log(repoResult, '--repos');
+        
 
         // Select specific indices from repoResult
-        const relevantProjects = [11, 12, 8, 9, 17, 1].map(index => repoResult[index]).filter(Boolean);
+        const relevantProjects = [14, 3, 13, 10, 11, 19].map(index => repoResult[index]).filter(Boolean);
         setGhRepo(relevantProjects);
 
 

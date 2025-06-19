@@ -7,7 +7,7 @@ const ScrollToTop = () => {
 
     useEffect(() => {
       if (pathname !=='/about') {
-          window.scrollTo(0, 0); // Scrolls to top whenever the route changes
+          window.scrollTo(0, 0); // Scrolls to top whenever the route changes.
       }
       
     },[pathname])
